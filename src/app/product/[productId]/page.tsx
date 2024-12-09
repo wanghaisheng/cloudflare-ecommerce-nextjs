@@ -1,9 +1,6 @@
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 
-
-export const runtime = 'edge';
-
 export default async function Page({
   params,
 }: {
@@ -20,19 +17,19 @@ export default async function Page({
     <div className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
-          {/* <ProductGallery
+          <ProductGallery
             mainImage={products[productId-1].image}
             // thumbnails={productData.thumbnails}
-          /> */}
+          />
           <div>
-            {/* <ProductInfo
+            <ProductInfo
               title="Product"
               price="$100"
               discount="Svae 2323r2"
               rating={1}
               reviews={23}
               description="Cool product"
-            /> */}
+            />
           </div>
         </div>
       </div>
