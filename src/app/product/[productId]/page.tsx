@@ -25,14 +25,14 @@ export default async function Page({
             // thumbnails={productData.thumbnails}
           />
           <div>
-            <ProductInfo
+            {/* <ProductInfo
               title="Product"
               price="$100"
               discount="Svae 2323r2"
               rating={1}
               reviews={23}
               description="Cool product"
-            />
+            /> */}
           </div>
         </div>
       </div>
