@@ -1,9 +1,9 @@
 export default async function Page({
     params,
   }: {
-    params: Promise<{ dynamicPage: string }>
+    params: Promise<{ productId: string }>
   }) {
-    const page = (await params).dynamicPage;
+    const page = (await params).productId;
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
