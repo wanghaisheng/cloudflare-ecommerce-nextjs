@@ -10,3 +10,8 @@ minify = true
 
 # Use the new Workers + Assets to host the static frontend files
 assets = { directory = ".worker-next/assets", binding = "ASSETS" }
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nextjs-ecommerce"
+database_id = "563a0abc-a859-440c-b5da-49ae4aa60d82"

@@ -1,11 +1,10 @@
-import { Star, Truck, Shield } from 'lucide-react';
+import { Star, Truck, Shield } from "lucide-react";
 
 interface ProductInfoProps {
   title: string;
-  price: string;
+  price: number;
   discount?: string;
   rating: number;
-  reviews: number;
   description: string;
 }
 
@@ -14,24 +13,26 @@ export default function ProductInfo({
   price,
   discount,
   rating,
-  reviews,
   description,
 }: ProductInfoProps) {
   return (
     <div className="mt-10 lg:mt-0 lg:pl-8">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900">{title}</h1>
-      
+      <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+        {title}
+      </h1>
+
       <div className="mt-3 flex items-center">
         <div className="flex items-center">
           {[...Array(5)].map((_, i) => (
-            <Star 
-              key={i} 
-              className={`h-5 w-5 ${i < rating ? 'text-yellow-400' : 'text-gray-200'}`}
+            <Star
+              key={i}
+              className={`h-5 w-5 ${
+                i < rating ? "text-yellow-400" : "text-gray-200"
+              }`}
               fill="currentColor"
             />
           ))}
         </div>
-        <span className="ml-3 text-sm text-gray-500">({reviews} reviews)</span>
       </div>
 
       <div className="mt-6">
@@ -39,7 +40,9 @@ export default function ProductInfo({
         <div className="flex items-center">
           <p className="text-3xl tracking-tight text-gray-900">{price}</p>
           {discount && (
-            <span className="ml-3 text-sm font-medium text-green-600">{discount}</span>
+            <span className="ml-3 text-sm font-medium text-green-600">
+              {discount}
+            </span>
           )}
         </div>
       </div>
@@ -56,11 +59,15 @@ export default function ProductInfo({
       <div className="mt-6 space-y-4">
         <div className="flex items-center">
           <Truck className="h-5 w-5 text-gray-400" />
-          <span className="ml-2 text-sm text-gray-600">Free shipping worldwide</span>
+          <span className="ml-2 text-sm text-gray-600">
+            Free shipping worldwide
+          </span>
         </div>
         <div className="flex items-center">
           <Shield className="h-5 w-5 text-gray-400" />
-          <span className="ml-2 text-sm text-gray-600">2-year warranty included</span>
+          <span className="ml-2 text-sm text-gray-600">
+            2-year warranty included
+          </span>
         </div>
       </div>
 
