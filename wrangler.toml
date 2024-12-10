@@ -1,6 +1,7 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "cloudflare-ecommerce-nextjs"
 main = ".worker-next/index.mjs"
+account_id="6ea501058781ea3447393e05a0296f58"
 
 compatibility_date = "2024-09-26"
 compatibility_flags = ["nodejs_compat"]
