@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard";
 import { Product } from "../../types/Product";
 
 async function App() {
-  const response = await fetch("http://localhost:3000/api/products");
+  const response = await fetch("/api/products");
   const data = (await response.json()) as { results: Product[] };
   const products = data.results;
 

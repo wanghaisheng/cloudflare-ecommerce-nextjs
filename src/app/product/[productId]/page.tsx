@@ -9,7 +9,7 @@ export default async function Page({
 }) {
   const productId = (await params).productId;
   const response = await fetch(
-    `http://localhost:3000/api/products/${productId}`
+    `/api/products/${productId}`
   );
   const data = (await response.json()) as { results: Product[] };
   const product = data.results[0];
