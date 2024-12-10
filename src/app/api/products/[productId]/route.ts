@@ -10,7 +10,7 @@ export async function GET(
 
   try {
     const results = await (await getCloudflareContext()).env.DB.prepare(
-      "SELECT id, name, description, price, rating, imageUrl FROM products WHERE id = ?;"
+      "SELECT id, name, description, price, rating, imageUrl FROM Products WHERE id = ?;"
     )
       .bind(productId)
       .run();
