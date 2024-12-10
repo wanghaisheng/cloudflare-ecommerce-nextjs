@@ -1,4 +1,4 @@
-import { getBaseUrl } from "@/app/utils/config";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { Product } from "../../../../types/Product";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
@@ -10,11 +10,20 @@ export default async function Page({
 }) {
   const productId = (await params).productId;
 
-  const baseUrl = getBaseUrl();
-  console.log("BASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URL", baseUrl);
-  const response = await fetch(`${baseUrl}/api/products/${productId}`);
-  const data = (await response.json()) as { results: Product[] };
-  const product = data.results[0];
+  const { results } = await (await getCloudflareContext()).env.DB.prepare(
+    "SELECT id, name, description, price, rating, imageUrl FROM products WHERE id = ?;"
+  )
+    .bind(productId)
+    .run();
+
+  if (!results) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-xl text-gray-800">Could not retrieve product</p>
+      </div>
+    )
+  }
+  const product = results[0] as Product;
 
   return (
     <div className="bg-white">
