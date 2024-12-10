@@ -2,9 +2,11 @@ import React from "react";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
 import { Product } from "../../types/Product";
+import { getBaseUrl } from "./utils/config";
 
 async function App() {
-  const response = await fetch("/api/products");
+  const baseUrl = getBaseUrl()
+  const response = await fetch(`${baseUrl}/api/products`);
   const data = (await response.json()) as { results: Product[] };
   const products = data.results;
 

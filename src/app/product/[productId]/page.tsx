@@ -1,3 +1,4 @@
+import { getBaseUrl } from "@/app/utils/config";
 import { Product } from "../../../../types/Product";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
@@ -8,9 +9,9 @@ export default async function Page({
   params: Promise<{ productId: number }>;
 }) {
   const productId = (await params).productId;
-  const response = await fetch(
-    `/api/products/${productId}`
-  );
+
+  const baseUrl = getBaseUrl();
+  const response = await fetch(`${baseUrl}/api/products/${productId}`);
   const data = (await response.json()) as { results: Product[] };
   const product = data.results[0];
 
