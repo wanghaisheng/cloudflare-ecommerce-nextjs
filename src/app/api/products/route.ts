@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
-export const runtime = 'edge'
 
 export async function GET(request: Request) {
   try {
-    const results = (await getCloudflareContext()).env.DB.prepare(
+
+    const results = await (await getCloudflareContext()).env.DB.prepare(
       "SELECT id, name, description, price, imageUrl FROM Products"
     ).run();
 

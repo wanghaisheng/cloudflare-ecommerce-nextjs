@@ -1,8 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { NextResponse } from "next/server";
 
-export const runtime = "edge";
-
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ productId: string }> }
@@ -11,7 +9,7 @@ export async function GET(
   const productId = (await params).productId;
 
   try {
-    const results = (await getCloudflareContext()).env.DB.prepare(
+    const results = await (await getCloudflareContext()).env.DB.prepare(
       "SELECT id, name, description, price, rating, imageUrl FROM products WHERE id = ?;"
     )
       .bind(productId)
