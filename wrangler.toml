@@ -14,5 +14,5 @@ assets = { directory = ".worker-next/assets", binding = "ASSETS" }
 
 [[d1_databases]]
 binding = "DB"
-database_name = "nextjs-ecommerce"
-database_id = "9183408c-b92a-4ac9-a2e3-e8f178b3ff4d"
+database_name = "cloudflare-ecommerce-nextjs"
+database_id = "b2fe3e0e-3589-4174-8fe8-a0e6c26a8340"
