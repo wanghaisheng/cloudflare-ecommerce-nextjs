@@ -11,6 +11,7 @@ export default async function Page({
   const productId = (await params).productId;
 
   const baseUrl = getBaseUrl();
+  console.log("BASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URLBASE URL", baseUrl);
   const response = await fetch(`${baseUrl}/api/products/${productId}`);
   const data = (await response.json()) as { results: Product[] };
   const product = data.results[0];
