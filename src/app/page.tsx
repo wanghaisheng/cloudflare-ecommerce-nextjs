@@ -38,9 +38,6 @@ async function App() {
                 Discover unique products handpicked by our experts
               </p>
             </div>
-            <button className="bg-white text-gray-900 mt-2 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-              Shop Now
-            </button>
           </div>
         </div>
       </div>
