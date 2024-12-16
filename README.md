@@ -1,20 +1,31 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Technology Used
+
+- Hosting: [Cloudflare Workers Assets](https://developers.cloudflare.com/workers/static-assets/) & OpenNext
+- Database: [Cloudflare D1](https://developers.cloudflare.com/d1/)
+- Front end: Next.js 14 built with App Router Architecture
+    - Static Routes
+    - Dynamic Routes
+    - Loading States
+    - Server Actions
+    - Cloudflare Bindings
+
+
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository to your local machine.
+2. Create the database where products will live in the local and remote environment.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Create you database with the following command: `npx wrangler d1 create cloudflare-ecommerce-nextjs`.
+- The output of the command will have show your database id. Update the `wrangler.json` with your database id.
+- Populate your local D1 database by running executing `schema.sql` script. This is in the root of the project `npx wrangler d1 cloudflare-ecommerce-nextjs --local --file=./schema.sql`.
+- Populate your remote D1 database by changing `--local` to `--remote` in the previous command: `npx wrangler d1 cloudflare-ecommerce-nextjs --remote --file=./schema.sql`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Start the Next.js development server with `npm run dev` and open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Deploy your application to Cloudflare Workers Assets with `npm run deploy`
+
+
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
@@ -26,11 +37,3 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
