@@ -1,5 +1,5 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import { Product } from "../../../../types/Product";
+import { Product } from "../../types/Product";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 

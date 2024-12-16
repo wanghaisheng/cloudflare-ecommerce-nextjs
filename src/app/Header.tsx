@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Search, ShoppingBag, User } from "lucide-react";
 import Image from "next/image";
+import SearchBar from "./components/SearchBar";
 
 const Header: React.FC = () => {
   return (
@@ -16,17 +17,7 @@ const Header: React.FC = () => {
               className="h-10"
             />
           </Link>
-          <div className="flex-1 max-w-md mx-8">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search products..."
-                className="w-full pl-10 pr-4 py-2 rounded-lg border text-black border-gray-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none"
-              />
-              <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-600" />
-            </div>
-          </div>
-
+          <SearchBar />
           <div className="flex items-center gap-6">
             <button className="text-gray-600 hover:text-indigo-600">
               <User className="h-6 w-6" />

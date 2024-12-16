@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
-import { Product } from "../../types/Product";
+import { Product } from "./types/Product";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 async function App() {
