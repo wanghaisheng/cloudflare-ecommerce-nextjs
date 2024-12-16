@@ -18,10 +18,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 1. Clone the repository to your local machine.
 2. Create the database where products will live in the local and remote environment.
 
-    - Create you database with the following command: `npx wrangler d1 create cloudflare-ecommerce-nextjs`.
+    - Create you database with the following command: 
+    `npx wrangler d1 create cloudflare-ecommerce-nextjs`.
     - The output of the command will have show your database id. Update the `wrangler.json` with your database id.
-    - Populate your local D1 database by running executing `schema.sql` script. This is in the root of the project `npx wrangler d1 cloudflare-ecommerce-nextjs --local --file=./schema.sql`.
-    - Populate your remote D1 database by changing `--local` to `--remote` in the previous command: `npx wrangler d1 cloudflare-ecommerce-nextjs --remote --file=./schema.sql`.
+    - Populate your local D1 database by running executing `schema.sql` script. This is in the root of the project 
+    `npx wrangler d1 cloudflare-ecommerce-nextjs --local --file=./schema.sql`.
+    - Populate your remote D1 database by changing `--local` to `--remote` in the previous command: 
+    `npx wrangler d1 cloudflare-ecommerce-nextjs --remote --file=./schema.sql`.
 
 3. Start the Next.js development server with `npm run dev` and open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 4. Deploy your application to Cloudflare Workers Assets with `npm run deploy`
