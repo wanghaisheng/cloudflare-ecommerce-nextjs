@@ -2,19 +2,33 @@ import React from "react";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
 import { Product } from "./types/Product";
-import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { headers } from "next/headers";
 
 async function App() {
-  const { results: products } = await (await getCloudflareContext()).env.DB.prepare(
-    "SELECT id, name, description, price, imageUrl FROM Products"
-  ).run() as { results: Product[] };
+  const headersList = await headers();
+  const host =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : `https://${headersList.get("host")}`;
+
+  let products: Product[] = [];
+  try {
+    const data = await fetch(`${host}/api/products`, {
+      cache: "force-cache",
+    });
+
+    const dataJson = (await data.json()) as { results: Product[] };
+    products = dataJson.results;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
 
   if (!products) {
     return (
       <div className="flex items-center justify-center h-screen">
         <p className="text-xl text-gray-800">Could not retrieve products</p>
       </div>
-    )
+    );
   }
 
   return (
