@@ -13,5 +13,11 @@
         "database_name": "cloudflare-ecommerce-nextjs",
         "database_id": "b2fe3e0e-3589-4174-8fe8-a0e6c26a8340"
       }
+    ],
+    "kv_namespaces": [
+      {
+        "binding": "cloudflare_ecommerce_nextjs",
+        "id": "9906343f8ea646e9ba39f8131778646c"
+      }
     ]
   }

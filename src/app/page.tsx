@@ -7,9 +7,7 @@ async function App() {
 
   let products: Product[] = [];
   try {
-    const data = await fetch(`https://cloudflare-ecommerce-nextjs.thomas-development.workers.dev/api/products`, {
-      cache: "force-cache",
-    });
+    const data = await fetch(`https://cloudflare-ecommerce-nextjs.thomas-development.workers.dev/api/products`);
 
     const dataJson = (await data.json()) as { results: Product[] };
     products = dataJson.results;
