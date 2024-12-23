@@ -2,18 +2,12 @@ import React from "react";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
 import { Product } from "./types/Product";
-import { headers } from "next/headers";
 
 async function App() {
-  const headersList = await headers();
-  const host =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : `https://${headersList.get("host")}`;
 
   let products: Product[] = [];
   try {
-    const data = await fetch(`${host}/api/products`, {
+    const data = await fetch(`https://cloudflare-ecommerce-nextjs.thomas-development.workers.dev/api/products`, {
       cache: "force-cache",
     });
 
